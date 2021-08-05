@@ -8,23 +8,37 @@ namespace SnakeAndLadder
         {
             Console.WriteLine("WelCome to Snake And Ladder Game!");
             int playerreaches = 0;
-            Random rand = new Random();
-            int DiceRoll = rand.Next(1, 7);
-            Console.WriteLine(DiceRoll);
-            int PositionCheck = rand.Next(0, 3);
-            switch (PositionCheck)
-            {
-                case 0:
-                    Console.WriteLine("No Play Player remains at same position");
-                   break;
-                case 1:
-                    Console.WriteLine("Player Moves ahead");
-                    break;
-                case 2:
-                    Console.WriteLine("Player moves behind");
-                    break;
 
+            Random rand = new Random();
+            while (playerreaches!<=100)
+            {
+                int DiceRoll = rand.Next(1, 7);
+                int PositionCheck = rand.Next(0, 3);
+                Console.WriteLine(DiceRoll);
+                
+                switch (PositionCheck)
+                {
+                    case 0:
+                        Console.WriteLine("No Play Player remains at same position");
+                        Console.WriteLine("playerreached" + playerreaches);
+                        break;
+                    case 1:
+                        Console.WriteLine("Player Moves ahead");
+                        playerreaches += DiceRoll;
+                        Console.WriteLine("playerreached" + playerreaches);
+                        break;
+                    case 2:
+                        Console.WriteLine("Player moves behind");
+                        playerreaches -= DiceRoll;
+                        Console.WriteLine("playerreached" + playerreaches);
+                        if (playerreaches < 0)
+                        {
+                            playerreaches = 0;
+                        }
+                        break;
+                }
             }
+            Console.WriteLine("Playerwon " + playerreaches);
         }
     }
 
