@@ -26,6 +26,8 @@ namespace SnakeAndLadder
                         Console.WriteLine("Player Moves ahead");
                         playerreaches += DiceRoll;
                         Console.WriteLine("playerreached" + playerreaches);
+                        
+
                         break;
                     case 2:
                         Console.WriteLine("Player moves behind");
